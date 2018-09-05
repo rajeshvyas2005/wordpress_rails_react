@@ -33,6 +33,23 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Read more: https://github.com/reactjs/react-rails
+gem 'react-rails'
+gem 'grape'
+gem 'grape-route-helpers'
+gem 'redis'
+gem 'hiredis'
+
+# Build JSON Formatter for GRAPE API. Read more: https://github.com/milkcocoa/grape-jbuilder
+gem 'grape-jbuilder'
+gem 'hashie'
+
+# Rails Html Sanitizers  Read more: https://github.com/rails/rails-html-sanitizer
+gem 'rails-html-sanitizer'
+
+# Check post language Read more: https://github.com/nashby/wtf_lang
+gem 'wtf_lang'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
