@@ -3,27 +3,45 @@ require 'net/http'
 require 'uri'
 require 'date'
 require 'wtf_lang'
+require 'pry'
 module LikeModule
   module Like
     class << self
       ACCESS_TOKEN = ENV['WP_ACCESS_TOKEN']
       WtfLang::API.key = ENV['WTFLANG_API_KEY']
       def likeposts
-        # {"access_token":"XXXX",
-        # "token_type":"bearer",
-        # "blog_id":"000000",
-        # "blog_url":"XXXX",
-        # "scope":""}
-        # uri = URI.parse("XXXX")
-        # req = Net::HTTP::Post.new(uri.request_uri)
-        # req.set_form_data({
-        #   'client_id' => 'XXXX',
-        #   'redirect_uri' =>'XXXX',
-        #   'client_secret' =>'XXXX',
-        #   'code' =>'XXXX',
-        #   'grant_type' =>'authorization_code'
-        #   })
-        #
+=begin
+        {
+          "access_token":"XXXX",
+          "token_type":"bearer",
+          "blog_id":"000000",
+          "blog_url":"XXXX",
+          "scope":""
+        }
+
+        # First step = Request for code
+        # https://public-api.wordpress.com/oauth2/authorize?client_id=your_client_id&redirect_uri=post_url_from_ur_blo&response_type=code
+        # Second step = Post request to get access token
+        uri = URI.parse("https://public-api.wordpress.com/oauth2/token")
+        req = Net::HTTP::Post.new(uri.request_uri)
+        req.set_form_data({
+          'client_id' => You client ID,
+          'redirect_uri' =>'Must match with requesting code',
+          'client_secret' =>'Secret of your application',
+          'code' =>'Code you receive from above request',
+          'grant_type' =>'authorization_code'
+        })
+          http = Net::HTTP.new(uri.host, uri.port)
+          http.use_ssl = true
+          # http.set_debug_output STDERR
+          resp = http.start{|h| h.request(req)}
+          # STDERR.puts resp.body
+
+        # This is for debug to check response
+        # data = JSON.parse(resp.body)
+        # binding.pry
+=end
+
         files = LikeModule::Share.getfiles("feedposts")
         files.each do |file|
           posts = JSON.parse(File.read(file))

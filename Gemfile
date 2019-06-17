@@ -8,8 +8,6 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -35,8 +33,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Read more: https://github.com/reactjs/react-rails
 gem 'react-rails'
-gem 'grape'
-gem 'grape-route-helpers'
 gem 'redis'
 gem 'hiredis'
 
@@ -45,7 +41,7 @@ gem 'grape-jbuilder'
 gem 'hashie'
 
 # Rails Html Sanitizers  Read more: https://github.com/rails/rails-html-sanitizer
-gem 'rails-html-sanitizer'
+gem 'rails-html-sanitizer', '~> 1.0.4'
 
 # Check post language Read more: https://github.com/nashby/wtf_lang
 gem 'wtf_lang'
@@ -65,6 +61,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry', '~> 0.12.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
