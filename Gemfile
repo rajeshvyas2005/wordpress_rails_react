@@ -41,7 +41,7 @@ gem 'grape-jbuilder'
 gem 'hashie'
 
 # Rails Html Sanitizers  Read more: https://github.com/rails/rails-html-sanitizer
-gem 'rails-html-sanitizer', '~> 1.0.4'
+gem 'rails-html-sanitizer', '~> 1.4.3'
 
 # Check post language Read more: https://github.com/nashby/wtf_lang
 gem 'wtf_lang'
